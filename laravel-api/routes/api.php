@@ -41,4 +41,6 @@ Route::prefix('appointments')->group(function () {
 
     // Rota para deletar um agendamento específico
     Route::delete('/{id}', [AppointmentController::class, 'destroy']);
+
+
 });
