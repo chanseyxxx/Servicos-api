@@ -1,4 +1,4 @@
-# Use uma imagem base com PHP
+# Use a imagem base oficial do PHP com FPM
 FROM php:8.1-fpm
 
 # Instale dependências do sistema
@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
-    libpng-dev \
     libonig-dev \
     libxml2-dev \
     unzip \
@@ -22,7 +21,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
 # Instale o Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Define o diretório de trabalho
+# Defina o diretório de trabalho
 WORKDIR /app
 
 # Copie os arquivos do projeto para o diretório de trabalho
